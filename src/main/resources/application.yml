@@ -18,7 +18,10 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: validate
+    show-sql: false
 
 logging:
   level:
-    org.hibernate.sql: DEBUG
+    org:
+      hibernate:
+        sql: DEBUG

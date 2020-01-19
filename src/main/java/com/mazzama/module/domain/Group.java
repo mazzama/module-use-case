@@ -6,10 +6,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@Builder
 @Getter
 @Setter
 @Table(name = "group")
@@ -22,11 +22,11 @@ public class Group extends BaseEntity {
             mappedBy = "group",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<User> users;
+    private List<User> users = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "group",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<ModuleGroup> moduleGroups;
+    private List<ModuleGroup> moduleGroups = new ArrayList<>();
 }

@@ -18,7 +18,7 @@ import java.util.UUID;
 @MappedSuperclass
 public class BaseEntity {
 
-    public BaseEntity(UUID id, Long version, Timestamp createdDate, Timestamp lastModifiedDate) {
+    public BaseEntity(Long id, Long version, Timestamp createdDate, Timestamp lastModifiedDate) {
         this.id = id;
         this.version = version;
         this.createdDate = createdDate;
@@ -26,11 +26,12 @@ public class BaseEntity {
     }
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Type(type = "org.hibernate.type.UUIDCharType")
-    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(generator = "UUID")
+//    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+//    @Type(type = "org.hibernate.type.UUIDCharType")
+//    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
+    private Long id;
 
     @Version
     private Long version;

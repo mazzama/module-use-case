@@ -11,7 +11,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-//@Builder
 @Table(name = "module")
 public class Module extends BaseEntity {
 

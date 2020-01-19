@@ -1,11 +1,11 @@
 package com.mazzama.module.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-//@Builder
 @Getter
 @Setter
 @Table(name = "module_group")
@@ -15,7 +15,7 @@ public class ModuleGroup extends BaseEntity {
     private Long order;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "module_id")
     private Module module;
 
     @ManyToOne(fetch = FetchType.LAZY)
