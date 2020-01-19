@@ -1,0 +1,2 @@
+- 
+- create table group (id varchar(36) not null, created_date timestamp, last_modified_date timestamp, version int8, name varchar(255), primary key (id)
