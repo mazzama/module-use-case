@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/modulegroup")
 public class ModuleGroupController {
@@ -27,6 +25,7 @@ public class ModuleGroupController {
 
     @GetMapping("/user/{id}")
     public ResponseEntity<ModulesDto> findModuleGroupsByUserId(@PathVariable("id") Long userId) {
-        return ResponseEntity.ok(moduleGroupService.findModuleGroupByUserId(userId));
+        ModulesDto modulesDto = moduleGroupService.findModuleGroupByUserId(userId);
+        return ResponseEntity.ok(modulesDto);
     }
 }

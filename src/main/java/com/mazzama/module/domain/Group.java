@@ -12,20 +12,20 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "group")
+@Table(name = "groups")
 public class Group extends BaseEntity {
 
     public Group() {}
     private String name;
 
     @OneToMany(
-            mappedBy = "group",
+            mappedBy = "groups",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<User> users = new ArrayList<>();
 
     @OneToMany(
-            mappedBy = "group",
+            mappedBy = "groups",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
     private List<ModuleGroup> moduleGroups = new ArrayList<>();

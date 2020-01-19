@@ -14,6 +14,6 @@ public class User extends BaseEntity {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
-    private Group group;
+    @JoinColumn(name = "groups_id")
+    private Group groups;
 }

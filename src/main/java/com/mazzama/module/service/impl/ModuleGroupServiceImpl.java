@@ -40,9 +40,9 @@ public class ModuleGroupServiceImpl implements ModuleGroupService {
         List<ModuleGroupDto> moduleGroupDtos;
 
         if (userOptional.isPresent()) {
-            Group userGroup = userOptional.get().getGroup();
+            Group userGroup = userOptional.get().getGroups();
 
-            List<ModuleGroup> moduleGroups = moduleGroupRepository.findAllByGroupId(userGroup.getId());
+            List<ModuleGroup> moduleGroups = moduleGroupRepository.findAllByGroupsId(userGroup.getId());
             moduleGroupDtos = convertToDto(moduleGroups);
         } else {
             throw new EntityNotFoundException("Tidak ditemukan");
@@ -59,7 +59,7 @@ public class ModuleGroupServiceImpl implements ModuleGroupService {
             for (ModuleGroup moduleGroup: moduleGroups) {
                 ModuleGroupDto dto = new ModuleGroupDto();
                 dto.setModuleName(moduleGroup.getModule().getName());
-                dto.setModuleOrder(moduleGroup.getOrder());
+                dto.setModuleOrder(moduleGroup.getOrders());
                 temporaryModuleGroup.add(dto);
             }
         }
