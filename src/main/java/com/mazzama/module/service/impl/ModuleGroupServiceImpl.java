@@ -8,6 +8,9 @@ import com.mazzama.module.dto.ModulesDto;
 import com.mazzama.module.repository.ModuleGroupRepository;
 import com.mazzama.module.repository.UserRepository;
 import com.mazzama.module.service.ModuleGroupService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,8 @@ import java.util.Optional;
 @Service
 public class ModuleGroupServiceImpl implements ModuleGroupService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ModuleGroupServiceImpl.class);
+
     @Autowired
     private ModuleGroupRepository moduleGroupRepository;
 
@@ -27,6 +32,8 @@ public class ModuleGroupServiceImpl implements ModuleGroupService {
 
     @Override
     public ModulesDto findAllModuleGroup() {
+        LOG.info("I am here");
+
         List<ModuleGroup> moduleGroups = moduleGroupRepository.findAll();
         List<ModuleGroupDto> moduleGroupDtos = convertToDto(moduleGroups);
         ModulesDto result = new ModulesDto();
