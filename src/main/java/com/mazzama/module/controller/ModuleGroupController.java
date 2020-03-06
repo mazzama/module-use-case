@@ -1,7 +1,5 @@
 package com.mazzama.module.controller;
 
-import com.mazzama.module.domain.ModuleGroup;
-import com.mazzama.module.dto.ModuleGroupDto;
 import com.mazzama.module.dto.ModulesDto;
 import com.mazzama.module.service.ModuleGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
